@@ -8,7 +8,7 @@ Détail du brief: https://3.basecamp.com/3165988/buckets/4702925/vaults/65081554
 
 - index.html = un fichier HTML basique
 
-Ce fichier charge les éléments suivants: 
+Ce fichier charge les éléments suivants:
 
 - css/normalize.css = un "normalisateur", voir http://necolas.github.io/normalize.css/
 - css/style.css = une feuille de style CSS que vous pourrez modifier.
@@ -17,7 +17,9 @@ Ce fichier charge les éléments suivants:
 
 ## Fonctionnement
 
-((à définir))
+((à définir mon projets représente une sorte de sphère tournante. Les trois ronds représentes l'heure,la minute et les secondes))
+
 
 Automne 2017  
 Eracom, Lausanne
+projets de stephanie wilson
