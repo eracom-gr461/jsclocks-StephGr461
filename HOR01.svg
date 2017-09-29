@@ -1,26 +1,26 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 595.28 841.89" style="enable-background:new 0 0 595.28 841.89;" xml:space="preserve">
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 595.3 841.9" style="enable-background:new 0 0 595.3 841.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+</style>
 <g id="spirale">
-	<circle style="fill:none;stroke:#000000;stroke-width:2.3152;stroke-miterlimit:10;" cx="294.46" cy="373.161" r="189.845"/>
-	<circle style="fill:none;stroke:#000000;stroke-width:2.3152;stroke-miterlimit:10;" cx="294.46" cy="373.161" r="160.509"/>
-	
-		<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="294.46" y1="151.989" x2="294.46" y2="109.692"/>
-	
-		<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="294.46" y1="612.167" x2="294.46" y2="654.463"/>
+	<line class="st0" x1="294.5" y1="152" x2="294.5" y2="109.7"/>
+	<line class="st0" x1="294.5" y1="612.2" x2="294.5" y2="654.5"/>
 </g>
 <g id="seconde">
-	<circle style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="294.46" cy="244.729" r="1.232"/>
+	<circle class="st1" cx="294.5" cy="244.7" r="1.2"/>
 </g>
 <g id="minutes">
-	<circle style="fill:#FFFFFF;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" cx="294.46" cy="212.882" r="5.509"/>
+	<circle class="st2" cx="294.5" cy="212.9" r="5.5"/>
 </g>
 <g id="heures_x5F_">
-	<circle style="fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" cx="294.46" cy="183.316" r="17.833"/>
-	
-		<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="55.454" y1="373.161" x2="13.158" y2="373.161"/>
-	
-		<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="533.466" y1="373.161" x2="575.762" y2="373.161"/>
+	<circle class="st3" cx="294.5" cy="183.3" r="17.8"/>
+	<line class="st0" x1="55.5" y1="373.2" x2="13.2" y2="373.2"/>
+	<line class="st0" x1="533.5" y1="373.2" x2="575.8" y2="373.2"/>
 </g>
 </svg>
