@@ -17,7 +17,7 @@ Ce fichier charge les éléments suivants:
 
 ## Fonctionnement
 
-((à définir mon projets représente une sorte de sphère tournante. Les trois ronds représentes l'heure,la minute et les secondes))
+((Mon projets représente une sorte de sphère tournante. Les trois ronds représentes l'heure,la minute et les secondes. J'ai voulu définir un dégradé de couleurs pour les secondes pour que cela soit plus attractif.Le dégradé commence toujours par une couleurs claires qui represente en quelque sorte le levé du soleil.))
 
 
 Automne 2017  

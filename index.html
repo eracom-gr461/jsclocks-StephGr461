@@ -5,41 +5,407 @@
         <title>The JS Clocks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
-        <script defer src="js/clocks.js"></script>
         <style>
-        #seconde circle {
-          stroke: #00ff00;
-        }
+
+	        body {
+					  display: flex;
+					  height: 100%;
+					  width: 100%;
+					  position: absolute;
+					}
+
+		      svg {
+		        border: 1px solid #ddd;
+		        margin: auto;
+		        height: 100%;
+		        width: auto;
+		      }
+
+		        /*
+		        * Rules for Vertical Screens
+		        */
+		        @media screen and ( max-aspect-ratio: 1/1 ) {
+		          svg {
+		            width: 100%;
+		            height: auto;
+		          }
+		        }
+
+		      .scnd {
+		        display: none;
+		      }
+
+			  .minutes {
+				 display: none;
+			  }
+			  .heures {
+				  	 display: none;
+
+			  }
+
         </style>
     </head>
     <body>
 
-		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-			 viewBox="0 0 595.28 841.89" style="enable-background:new 0 0 595.28 841.89;" xml:space="preserve">
-		<g id="spirale">
-			<circle style="fill:none;stroke:#000000;stroke-width:2.3152;stroke-miterlimit:10;" cx="294.46" cy="373.161" r="189.845"/>
-			<circle style="fill:none;stroke:#000000;stroke-width:2.3152;stroke-miterlimit:10;" cx="294.46" cy="373.161" r="160.509"/>
+		<svg id="vector" width="600" height="600" viewbox="0 0 600 600">
 
-				<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="294.46" y1="151.989" x2="294.46" y2="109.692"/>
+    		<circle id="seconde" class="scnd" style="fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:10;" cx="100" cy="100" r="3"/>
 
-				<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="294.46" y1="612.167" x2="294.46" y2="654.463"/>
-		</g>
-		<g id="seconde">
-			<circle style="fill:none;stroke:#000000;stroke-miterlimit:10;" cx="294.46" cy="244.729" r="1.232"/>
-		</g>
-		<g id="minutes">
-			<circle style="fill:#FFFFFF;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" cx="294.46" cy="212.882" r="5.509"/>
-		</g>
-		<g id="heures_x5F_">
-			<circle style="fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;" cx="294.46" cy="183.316" r="17.833"/>
+    		<circle id="minutes" class="minutes" style="fill:#ccfff1;stroke:#ccbff1;stroke-width:1.5;stroke-miterlimit:10;" cx="120" cy="150" r="9"/>
+			<circle id="heures" class="heures" style="fill:#ccbff1;stroke:#ccfff1;stroke-width:2;stroke-miterlimit:10;" cx="250" cy="50" r="20"/>
 
-				<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="55.454" y1="373.161" x2="13.158" y2="373.161"/>
 
-				<line style="fill:none;stroke:#000000;stroke-width:1.5;stroke-miterlimit:10;" x1="533.466" y1="373.161" x2="575.762" y2="373.161"/>
-		</g>
 		</svg>
 
+		<script>
 
-    </body>
+			// Cloner un élément 60 fois:
+			// On va créer 60 items, et on va les masquer
+
+			// On sélectionner notre modèle:
+			var itm = document.getElementById("seconde");
+
+			var i; // i = convention, pour "integer" (nombre entier)
+			for (i = 0; i < 61; i++) {
+
+				var angle = i*6;
+
+				var angle = angle - 135; // Correction du "translate(50%,50%)"
+
+				// Copy the element
+				var cln = itm.cloneNode(true);
+
+				// Change the elment
+				cln.id = 'seconde'+i;
+				cln.style.transform = 'translate(50%,50%) rotate('+angle+'deg)';
+
+				// Append the cloned element to something
+				document.getElementById("vector").appendChild(cln);
+
+			}
+
+
+
+			var itm = document.getElementById("minutes");
+
+			var i; // i = convention, pour "integer" (nombre entier)
+			for (i = 0; i < 61; i++) {
+
+				var angle = i*6;
+
+				var angle = angle - 135; // Correction du "translate(50%,50%)"
+
+				// Copy the element
+				var cln = itm.cloneNode(true);
+
+				// Change the elment
+				cln.id = 'minutes'+i;
+				cln.style.transform = 'translate(50%,50%) rotate('+angle+'deg)';
+
+				// Append the cloned element to something
+				document.getElementById("vector").appendChild(cln);
+
+			}
+
+
+
+
+
+						var itm = document.getElementById("heures");
+
+						var i; // i = convention, pour "integer" (nombre entier)
+						for (i = 0; i < 12; i++) {
+
+							var angle = i*30;
+
+							var angle = angle - 100; // Correction du "translate(50%,50%)"
+
+							// Copy the element
+							var cln = itm.cloneNode(true);
+
+							// Change the elment
+							cln.id = 'heures'+i;
+							cln.style.transform = 'translate(50%,50%) rotate('+angle+'deg)';
+
+							// Append the cloned element to something
+							document.getElementById("vector").appendChild(cln);
+
+						}
+
+
+
+			// Colorisation de quelques éléments pour visualiser leur position:
+
+			var sec0 = document.getElementById("seconde0");
+			sec0.style.fill = "#fd3f92";
+			var sec1 = document.getElementById("seconde1");
+			sec1.style.fill = "#f2aca4";
+			var sec2 = document.getElementById("seconde2");
+			sec2.style.fill = "#ec8c98";
+			var sec3 = document.getElementById("seconde3");
+			sec3.style.fill = "#e76c8e";
+			var sec4 = document.getElementById("seconde4");
+			sec4.style.fill = "#d95387";
+			var sec5 = document.getElementById("seconde5");
+			sec5.style.fill = "#b6458b";
+			var sec6 = document.getElementById("seconde6");
+			sec6.style.fill = "#96388e";
+			var sec7 = document.getElementById("seconde7");
+			sec7.style.fill = "#732d94";
+			var sec8 = document.getElementById("seconde8");
+			sec8.style.fill = "#5d2586";
+			var sec9 = document.getElementById("seconde9");
+			sec9.style.fill = "#4c1e6e";
+			var sec10 = document.getElementById("seconde10");
+			sec10.style.fill = "#3d1758";
+
+
+			var sec11 = document.getElementById("seconde11");
+			sec11.style.fill = "#fcec8c";
+			var sec12 = document.getElementById("seconde12");
+			sec12.style.fill = "#fce778";
+			var sec13 = document.getElementById("seconde13");
+			sec13.style.fill = "#f8cf6b";
+			var sec14 = document.getElementById("seconde14");
+			sec14.style.fill = "#f4b75f";
+			var sec15 = document.getElementById("seconde15");
+   		 	sec15.style.fill = "#fd3f92";
+			var sec16 = document.getElementById("seconde16");
+			sec16.style.fill = "#eea053";
+			var sec17 = document.getElementById("seconde17");
+			sec17.style.fill = "#e98a48";
+			var sec18 = document.getElementById("seconde18");
+			sec18.style.fill = "#e5723e";
+			var sec19 = document.getElementById("seconde19");
+			sec19.style.fill = "#e15c35";
+			var sec20 = document.getElementById("seconde20");
+			sec20.style.fill = "#c54e30";
+			var sec21 = document.getElementById("seconde21");
+			sec21.style.fill = "#9b442d";
+
+
+			var sec22 = document.getElementById("seconde22");
+			sec22.style.fill = "#dcebca";
+			var sec23= document.getElementById("seconde23");
+			sec23.style.fill = "#b4ddcc";
+			var sec24 = document.getElementById("seconde24");
+			sec24.style.fill = "#8ccdcd";
+			var sec25 = document.getElementById("seconde25");
+			sec25.style.fill = "#66bed1";
+			var sec26 = document.getElementById("seconde26");
+			sec26.style.fill = "#4baacc";
+			var sec27 = document.getElementById("seconde27");
+			sec27.style.fill = "#4192bc";
+			var sec28 = document.getElementById("seconde28");
+			sec28.style.fill = "#3978ac";
+			var sec29 = document.getElementById("seconde29");
+			sec29.style.fill = "#305f9c";
+			var sec30 = document.getElementById("seconde30");
+			sec30.style.fill = "#fd3f92";
+			var sec31 = document.getElementById("seconde31");
+			sec31.style.fill = "#1d2e7d";
+			var sec32 = document.getElementById("seconde32");
+			sec32.style.fill = "#172363";
+
+
+
+
+
+
+						var sec33 = document.getElementById("seconde33");
+						sec33.style.fill = "#f8cdae";
+						var sec34 = document.getElementById("seconde34");
+						sec34.style.fill = "#f2aca4";
+						var sec35 = document.getElementById("seconde35");
+						sec35.style.fill = "#ec8c98";
+						var sec36 = document.getElementById("seconde36");
+						sec36.style.fill = "#e76c8e";
+						var sec37 = document.getElementById("seconde37");
+						sec4.style.fill = "#d95387";
+						var sec38 = document.getElementById("seconde38");
+						sec38.style.fill = "#b6458b";
+						var sec39 = document.getElementById("seconde39");
+						sec39.style.fill = "#96388e";
+						var sec40 = document.getElementById("seconde40");
+						sec40.style.fill = "#732d94";
+						var sec41 = document.getElementById("seconde41");
+						sec41.style.fill = "#5d2586";
+						var sec42 = document.getElementById("seconde42");
+						sec42.style.fill = "#4c1e6e";
+						var sec43 = document.getElementById("seconde43");
+						sec43.style.fill = "#3d1758";
+
+
+						var sec44 = document.getElementById("seconde44");
+						sec44.style.fill = "#fcec8c";
+						var sec45 = document.getElementById("seconde45");
+						sec45.style.fill = "#fd3f92";
+						var sec46 = document.getElementById("seconde46");
+						sec46.style.fill = "#f8cf6b";
+						var sec47 = document.getElementById("seconde47");
+						sec47.style.fill = "#f4b75f";
+						var sec48 = document.getElementById("seconde48");
+			   		 	sec48.style.fill = "#fd3f92";
+						var sec49 = document.getElementById("seconde49");
+						sec49.style.fill = "#eea053";
+						var sec50 = document.getElementById("seconde50");
+						sec50.style.fill = "#e98a48";
+						var sec51 = document.getElementById("seconde51");
+						sec51.style.fill = "#e5723e";
+						var sec52 = document.getElementById("seconde52");
+						sec52.style.fill = "#e15c35";
+						var sec53 = document.getElementById("seconde53");
+						sec53.style.fill = "#c54e30";
+						var sec54 = document.getElementById("seconde54");
+						sec54.style.fill = "#9b442d";
+
+
+						var sec55 = document.getElementById("seconde55");
+						sec55.style.fill = "#dcebca";
+						var sec56= document.getElementById("seconde56");
+						sec56.style.fill = "#b4ddcc";
+						var sec57 = document.getElementById("seconde57");
+						sec57.style.fill = "#8ccdcd";
+						var sec58 = document.getElementById("seconde58");
+						sec58.style.fill = "#66bed1";
+						var sec59 = document.getElementById("seconde59");
+						sec59.style.fill = "#4baacc";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			// Colorisation de quelques éléments pour visualiser leur position:
+
+
+			var minutes0 = document.getElementById("minutes0");
+			minutes0.style.fill = "60fcf4";
+
+			var minutes15 = document.getElementById("minutes15");
+			minutes15.style.fill = "60fcf4";
+
+			var minutes30 = document.getElementById("minutes30");
+			minutes30.style.fill = "60fcf4";
+
+			var minutes45 = document.getElementById("minutes45");
+			minutes45.style.fill = "60fcf4";
+
+
+
+
+
+
+			var heures3 = document.getElementById("heures3");
+			heures3.style.fill = "fd3f92";
+
+			var heures6 = document.getElementById("heures6");
+			heures6.style.fill = "fd3f92";
+
+			var heures9 = document.getElementById("heures9");
+			heures9.style.fill = "fd3f92";
+
+			var heures0 = document.getElementById("heures0");
+			heures0.style.fill = "fd3f92";
+
+
+
+
+
+
+
+
+
+			function metronome() {
+
+			  var date = new Date();
+
+			  var seconde = date.getSeconds();
+
+			  if ( seconde == 0 ) {
+
+			  	// masquer tous les .scnd
+
+			  	var hideAll = document.getElementsByClassName("scnd") ;
+
+			  	var i;
+			  	for (i = 0; i < hideAll.length; i++) {
+			  		hideAll[i].style.display = "none";
+			  	}
+
+			  	// afficher l'élément zéro:
+
+			  	var showSec = document.getElementById("seconde0");
+			  	showSec.style.display = "block";
+
+
+			  }
+
+
+			   else {
+
+			  	// afficher l'élément rajouter l'heure
+
+			  	var sec = 'seconde' + date.getSeconds();
+				var minutes = 'minutes' + date.getMinutes();
+
+				var heures = date.getHours();
+				if (heures > 12) {
+					heures = (heures - 12)
+				}
+
+
+
+				var heures = 'heures' + heures ;
+
+
+
+					// console.log(heures);
+
+
+				  var showSec = document.getElementById(sec);
+				  var showMin = document.getElementById(minutes);
+				  var showHeures = document.getElementById(heures);
+
+				  showSec.style.display = "block";
+				  showMin.style.display = "block";
+				  showHeures.style.display = "block";
+
+
+			  }
+
+			} // fin de metronome()
+
+
+
+
+
+			// On lance metronome() une fois dès le chargement de la page:
+
+			metronome();
+
+
+			// Répéter la fonction metronone une fois par seconde
+
+			var forever = setInterval(function() {
+			  metronome();
+			}, 1000);
+
+		</script>
+  </body>
 </html>
